@@ -5,7 +5,7 @@ function Footer() {
     <footer
       className="text-light"
       style={{
-        backgroundColor: "#000",
+        backgroundColor: "#892121ff",
         width: "100%",
         marginTop: "50px"
       }}

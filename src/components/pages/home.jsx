@@ -1,30 +1,71 @@
 import React from "react";
+import videoBg from "../../assets/front_video.mp4";
+
 function Home() {
   return (
-    
     <div style={{ backgroundColor: "#f8f9fa" }}>
-      
-      {/* Hero Section */}
-      <section
-        className="text-light d-flex align-items-center"
-        style={{
-          background: "url('https://images.unsplash.com/photo-1524594154908-edd222533a6e') center/cover",
-          height: "90vh",
-          paddingTop: "80px"
-        }}
-      >
-        <div className="container">
-          <h1 className="display-3 fw-bold text-warning">
-            Welcome to FarmHive
-          </h1>
-          <p className="fs-4">
-            Your trusted marketplace for quality farming essentials.
-          </p>
-          <button className="btn btn-warning btn-lg px-5 fw-semibold">Shop Now</button>
-        </div>
-      </section>
 
-      {/* Categories */}
+      {/* ======================================
+          FULLSCREEN HERO VIDEO (PERFECT FIT)
+      ====================================== */}
+<section
+  id="home"
+  className="hero-section"
+  aria-label="Hero"
+  style={{
+    position: "relative",
+    width: "100%",
+    height: "92vh",
+    overflow: "hidden",
+    marginTop: "70px",
+  }}
+>
+
+  {/* Background Video */}
+  <video
+    src={videoBg}
+    autoPlay
+    loop
+    muted
+    playsInline
+    style={{
+      position: "absolute",
+      
+      top: "50%",
+      left: "50%",
+      minWidth: "100%",
+      minHeight: "100%",
+      width: "auto",
+      height: "auto",
+      transform: "translate(-50%, -50%)",
+      objectFit: "cover",
+    }}
+  />
+  {/* Content */}
+  <div
+    style={{
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      zIndex: 2,
+      textAlign: "center",
+      color: "white",
+      width: "100%",
+    }}
+  >
+    <button className="btn btn-warning btn-lg px-5 fw-semibold " style={{
+      position: "absolute", bottom: "-320px", left: "650px"
+    }}>Shop Now</button>
+  </div>
+</section>
+
+
+      {/* FIX: REMOVE WHITE GAP (Spacer removed) */}
+
+      {/* ======================================
+          SHOP BY CATEGORY
+      ====================================== */}
       <section className="container py-5">
         <h2 className="fw-bold text-center mb-4">Shop by Category</h2>
         <div className="row">
@@ -48,12 +89,14 @@ function Home() {
         </div>
       </section>
 
-      {/* Featured Products */}
+      {/* ======================================
+          FEATURED PRODUCTS
+      ====================================== */}
       <section className="py-5">
         <div className="container">
           <h2 className="fw-bold text-center mb-4">Featured Products</h2>
-
           <div className="row">
+
             {[1, 2, 3].map((prod) => (
               <div className="col-md-4 mb-4" key={prod}>
                 <div className="card shadow-sm">
@@ -70,12 +113,14 @@ function Home() {
                 </div>
               </div>
             ))}
-          </div>
 
+          </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
+      {/* ======================================
+          CTA BANNER
+      ====================================== */}
       <section
         className="text-center text-light py-5"
         style={{ backgroundColor: "#000" }}
@@ -92,5 +137,4 @@ function Home() {
     </div>
   );
 }
-
 export default Home;

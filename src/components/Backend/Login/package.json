@@ -1,0 +1,15 @@
+{
+  "name": "login-backend",
+  "version": "1.0.0",
+  "description": "Backend validation server for FarmHive login system",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.1"
+  }
+}
