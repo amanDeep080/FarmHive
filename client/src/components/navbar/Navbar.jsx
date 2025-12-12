@@ -31,28 +31,46 @@ function Navbar() {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
 
             {/* Home */}
-            <li className="nav-item">
-              <a className="nav-link fs-5 mx-2" href="#home">Home</a>
+        <li className="nav-item">
+              <a href="#Home">
+              <button className="btn btn-warning ms-3 px-4 fw-semibold">
+                Contact us
+              </button>
+              </a>
             </li>
 
             {/* Products */}
-            <li className="nav-item">
-              <a className="nav-link fs-5 mx-2" href="#products">Products</a>
+        <li className="nav-item">
+              <a href="#Products">
+              <button className="btn btn-warning ms-3 px-4 fw-semibold">
+                Contact us
+              </button>
+              </a>
             </li>
-
             {/* Cart */}
-            <li className="nav-item">
-              <a className="nav-link fs-5 mx-2" href="#cart">Cart</a>
+        <li className="nav-item">
+              <a href="#Cart">
+              <button className="btn btn-warning ms-3 px-4 fw-semibold">
+                Contact us
+              </button>
+              </a>
             </li>
 
             {/* About */}
-            <li className="nav-item">
-              <a className="nav-link fs-5 mx-2" href="#about">About</a>
+        <li className="nav-item">
+              <a href="#About">
+              <button className="btn btn-warning ms-3 px-4 fw-semibold">
+                Contact us
+              </button>
+              </a>
             </li>
-
             {/* Contact */}
-            <li className="nav-item">
-              <a className="nav-link fs-5 mx-2" href="#contact">Contact</a>
+        <li className="nav-item">
+              <a href="/contact.html">
+              <button className="btn btn-warning ms-3 px-4 fw-semibold">
+                Contact us
+              </button>
+              </a>
             </li>
 
             {/* Login Button */}
