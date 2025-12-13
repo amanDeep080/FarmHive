@@ -59,79 +59,155 @@ function Home() {
     }}>Shop Now</button>
   </div>
 </section>
-
-
-      {/* FIX: REMOVE WHITE GAP (Spacer removed) */}
-
-      {/* ======================================
-          SHOP BY CATEGORY
-      ====================================== */}
-      <section className="container py-5">
-        <h2 className="fw-bold text-center mb-4">Shop by Category</h2>
-        <div className="row">
-
-          {[
-            { name: "Seeds", img: "https://images.unsplash.com/photo-1589927986089-35812388d1f4" },
-            { name: "Tools", img: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351" },
-            { name: "Fertilizers", img: "https://images.unsplash.com/photo-1607354584268-8c920840e1e9" },
-            { name: "Crop Protection", img: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6" }
-          ].map((cat, i) => (
-            <div className="col-md-3 mb-4" key={i}>
-              <div className="card shadow-sm">
-                <img src={cat.img} className="card-img-top" height="180" alt={cat.name} />
-                <div className="card-body text-center">
-                  <h5 className="fw-bold">{cat.name}</h5>
-                </div>
-              </div>
-            </div>
-          ))}
-
-        </div>
+<section className="container py-5">
+        <h2 className="fw-bold text-center mb-4">Who We Are</h2>
+        <p
+          className="text-center fs-5 text-muted mx-auto"
+          style={{ maxWidth: "900px" }}
+        >
+          FarmHive is a digital agriculture platform designed to simplify how
+          farmers access seeds, fertilizers, tools, irrigation equipment, and
+          crop protection solutions. We aim to eliminate inefficiencies in the
+          traditional supply chain and replace them with a transparent,
+          technology-driven ecosystem.
+        </p>
+        <p
+          className="text-center fs-5 text-muted mx-auto mt-3"
+          style={{ maxWidth: "900px" }}
+        >
+          By combining trusted suppliers, modern technology, and a farmer-first
+          mindset, FarmHive helps agricultural communities grow sustainably and
+          profitably.
+        </p>
       </section>
 
       {/* ======================================
-          FEATURED PRODUCTS
+          WHY CHOOSE FARMHIVE
       ====================================== */}
-      <section className="py-5">
+      <section className="py-5 bg-light">
         <div className="container">
-          <h2 className="fw-bold text-center mb-4">Featured Products</h2>
-          <div className="row">
+          <h2 className="fw-bold text-center mb-5">Why Choose FarmHive</h2>
 
-            {[1, 2, 3].map((prod) => (
-              <div className="col-md-4 mb-4" key={prod}>
-                <div className="card shadow-sm">
-                  <img
-                    src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6"
-                    className="card-img-top"
-                    alt="Product"
-                  />
-                  <div className="card-body text-center">
-                    <h5 className="fw-bold">Premium Fertilizer</h5>
-                    <p>High-nutrient formula for healthier, stronger crops.</p>
-                    <button className="btn btn-warning px-4">Buy Now</button>
+          <div className="row text-center g-4">
+            {[
+              {
+                title: "Verified Quality Products",
+                desc: "All products available on FarmHive go through a quality verification process to ensure reliability and effectiveness on the field.",
+                icon: "🌾",
+              },
+              {
+                title: "Built for Farmers",
+                desc: "Our platform is designed after understanding real-world challenges faced by farmers across different regions.",
+                icon: "👨‍🌾",
+              },
+              {
+                title: "Transparent Pricing",
+                desc: "We remove unnecessary intermediaries, ensuring fair pricing and better value for every purchase.",
+                icon: "💰",
+              },
+              {
+                title: "Technology Enabled",
+                desc: "From product discovery to order tracking, technology helps make farming smarter and more efficient.",
+                icon: "📊",
+              },
+            ].map((item, i) => (
+              <div className="col-md-3" key={i}>
+                <div className="p-4 h-100 shadow-sm bg-white rounded">
+                  <div style={{ fontSize: "2.5rem" }} className="mb-3">
+                    {item.icon}
                   </div>
+                  <h5 className="fw-bold mb-3">{item.title}</h5>
+                  <p className="text-muted">{item.desc}</p>
                 </div>
               </div>
             ))}
-
           </div>
         </div>
       </section>
 
       {/* ======================================
-          CTA BANNER
+          HOW FARMHIVE WORKS
+      ====================================== */}
+      <section className="container py-5">
+        <h2 className="fw-bold text-center mb-5">How FarmHive Works</h2>
+
+        <div className="row text-center g-4">
+          {[
+            {
+              step: "01",
+              title: "Discover Products",
+              desc: "Browse a wide range of agriculture products suited to your crop and farming needs.",
+            },
+            {
+              step: "02",
+              title: "Compare & Choose",
+              desc: "Compare quality, pricing, and categories before making informed decisions.",
+            },
+            {
+              step: "03",
+              title: "Place Orders",
+              desc: "Order directly from trusted suppliers with transparent pricing.",
+            },
+            {
+              step: "04",
+              title: "Grow Better",
+              desc: "Use reliable inputs to improve yield, efficiency, and farm productivity.",
+            },
+          ].map((item, i) => (
+            <div className="col-md-3" key={i}>
+              <div className="p-4 h-100 border rounded bg-white shadow-sm">
+                <h2 className="text-warning fw-bold">{item.step}</h2>
+                <h5 className="fw-bold mt-3">{item.title}</h5>
+                <p className="text-muted mt-2">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ======================================
+          MISSION & VISION
+      ====================================== */}
+      <section className="container py-5">
+        <div className="row align-items-center">
+          <div className="col-md-6 mb-4">
+            <h3 className="fw-bold mb-3">Our Mission</h3>
+            <p className="fs-5 text-muted">
+              To empower farmers with easy access to quality agricultural inputs
+              while enabling informed decision-making through transparency and
+              technology.
+            </p>
+          </div>
+
+          <div className="col-md-6 mb-4">
+            <h3 className="fw-bold mb-3">Our Vision</h3>
+            <p className="fs-5 text-muted">
+              To become India’s most trusted digital agriculture ecosystem,
+              supporting sustainable farming and long-term rural prosperity.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================
+          CTA
       ====================================== */}
       <section
         className="text-center text-light py-5"
         style={{ backgroundColor: "#000" }}
       >
-        <h2 className="fw-bold text-warning">Join the FarmHive Community</h2>
-        <p className="fs-5 mt-3">
-          Get the best deals, product updates & expert farming tips.
+        <h2 className="fw-bold text-warning mb-3">
+          Partner with FarmHive
+        </h2>
+        <p className="fs-5 mb-4">
+          Join a growing community of farmers and agri-partners shaping the
+          future of agriculture.
         </p>
-        <button className="btn btn-warning btn-lg px-5 fw-semibold">
-          Sign Up Now
-        </button>
+        <a href="/contact.html">
+          <button className="btn btn-warning btn-lg px-5 fw-semibold">
+            Get Started Today
+          </button>
+        </a>
       </section>
 
     </div>
