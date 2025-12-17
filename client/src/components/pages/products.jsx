@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useCart } from "../../context/CartContext";
 
 const Products = () => {
+  const { addToCart } = useCart();
   const [search, setSearch] = useState("");
 
   const [products] = useState([
@@ -68,7 +70,10 @@ const Products = () => {
                       Category: <span className="text-secondary">{product.category}</span>
                     </p>
                     <p className="card-text fw-bold">₹ {product.price}</p>
-                    <button className="btn btn-warning mt-auto fw-semibold">
+                    <button
+                      className="btn btn-warning mt-auto fw-semibold"
+                      onClick={() => addToCart(product)}
+                    >
                       Add to Cart
                     </button>
                   </div>
