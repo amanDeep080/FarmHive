@@ -1,65 +1,66 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import videoBg from "../../assets/front_video.mp4";
 
 function Home() {
   return (
-    <div style={{ backgroundColor: "#f8f9fa" }}>
+    <div>
 
       {/* ======================================
           FULLSCREEN HERO VIDEO (PERFECT FIT)
       ====================================== */}
-<section
-  id="home"
-  className="hero-section"
-  aria-label="Hero"
-  style={{
-    position: "relative",
-    width: "100%",
-    height: "92vh",
-    overflow: "hidden",
-    marginTop: "70px",
-  }}
->
+      <section
+        id="home"
+        className="hero-section"
+        aria-label="Hero"
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "92vh",
+          overflow: "hidden",
+          marginTop: "70px",
+        }}
+      >
 
-  {/* Background Video */}
-  <video
-    src={videoBg}
-    autoPlay
-    loop
-    muted
-    playsInline
-    style={{
-      position: "absolute",
-      
-      top: "50%",
-      left: "50%",
-      minWidth: "100%",
-      minHeight: "100%",
-      width: "auto",
-      height: "auto",
-      transform: "translate(-50%, -50%)",
-      objectFit: "cover",
-    }}
-  />
-  {/* Content */}
-  <div
-    style={{
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      zIndex: 2,
-      textAlign: "center",
-      color: "white",
-      width: "100%",
-    }}
-  >
-    <button className="btn btn-warning btn-lg px-5 fw-semibold " style={{
-      position: "absolute", bottom: "-320px", left: "650px"
-    }}>Shop Now</button>
-  </div>
-</section>
-<section className="container py-5">
+        {/* Background Video */}
+        <video
+          src={videoBg}
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: "absolute",
+
+            top: "50%",
+            left: "50%",
+            minWidth: "100%",
+            minHeight: "100%",
+            width: "auto",
+            height: "auto",
+            transform: "translate(-50%, -50%)",
+            objectFit: "cover",
+          }}
+        />
+        {/* Content */}
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 2,
+            textAlign: "center",
+            color: "white",
+            width: "100%",
+          }}
+        >
+          <Link to="/products" className="btn btn-warning btn-lg px-5 fw-semibold " style={{
+            position: "absolute", bottom: "-320px", left: "650px"
+          }}>Shop Now</Link>
+        </div>
+      </section>
+      <section className="container py-5">
         <h2 className="fw-bold text-center mb-4">Who We Are</h2>
         <p
           className="text-center fs-5 text-muted mx-auto"
@@ -84,7 +85,7 @@ function Home() {
       {/* ======================================
           WHY CHOOSE FARMHIVE
       ====================================== */}
-      <section className="py-5 bg-light">
+      <section className="py-5">
         <div className="container">
           <h2 className="fw-bold text-center mb-5">Why Choose FarmHive</h2>
 
@@ -112,7 +113,7 @@ function Home() {
               },
             ].map((item, i) => (
               <div className="col-md-3" key={i}>
-                <div className="p-4 h-100 shadow-sm bg-white rounded">
+                <div className="p-4 h-100 shadow-sm card rounded">
                   <div style={{ fontSize: "2.5rem" }} className="mb-3">
                     {item.icon}
                   </div>
@@ -155,7 +156,7 @@ function Home() {
             },
           ].map((item, i) => (
             <div className="col-md-3" key={i}>
-              <div className="p-4 h-100 border rounded bg-white shadow-sm">
+              <div className="p-4 h-100 border rounded card shadow-sm">
                 <h2 className="text-warning fw-bold">{item.step}</h2>
                 <h5 className="fw-bold mt-3">{item.title}</h5>
                 <p className="text-muted mt-2">{item.desc}</p>

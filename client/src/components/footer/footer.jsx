@@ -3,9 +3,8 @@ import React from "react";
 function Footer() {
   return (
     <footer
-      className="text-light"
+      className="app-footer"
       style={{
-        backgroundColor: "#892121ff",
         width: "100%",
         marginTop: "50px"
       }}
@@ -25,10 +24,10 @@ function Footer() {
           <div className="col-md-2 mb-4">
             <h5 className="text-warning fw-bold">Quick Links</h5>
             <ul className="list-unstyled mt-3">
-              <li className="mb-2"><a href="#" className="text-light text-decoration-none">Home</a></li>
-              <li className="mb-2"><a href="#" className="text-light text-decoration-none">Products</a></li>
-              <li className="mb-2"><a href="#" className="text-light text-decoration-none">Categories</a></li>
-              <li><a href="#" className="text-light text-decoration-none">About Us</a></li>
+              <li className="mb-2"><a href="#" className="text-decoration-none footer-link">Home</a></li>
+              <li className="mb-2"><a href="#" className="text-decoration-none footer-link">Products</a></li>
+              <li className="mb-2"><a href="#" className="text-decoration-none footer-link">Categories</a></li>
+              <li><a href="#" className="text-decoration-none footer-link">About Us</a></li>
             </ul>
           </div>
 

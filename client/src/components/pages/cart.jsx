@@ -7,7 +7,7 @@ const Cart = () => {
 
     return (
         <div className="cart-page">
-            <div className="container py-5 text-light" style={{ marginTop: "96px" }}>
+            <div className="container py-5" style={{ marginTop: "70px" }}>
                 <h2 className="text-warning fw-bold mb-4">Your Cart</h2>
 
                 {cartItems.length === 0 ? (
@@ -23,7 +23,7 @@ const Cart = () => {
                             {cartItems.map((item) => (
                                 <div
                                     key={item.id}
-                                    className="card bg-dark text-light mb-3 border-warning shadow-sm"
+                                    className="card mb-3 border-warning shadow-sm"
                                 >
                                     <div className="row g-0 align-items-center">
                                         <div className="col-md-2">
@@ -87,7 +87,7 @@ const Cart = () => {
                         </div>
 
                         <div className="col-lg-4">
-                            <div className="card bg-dark text-light border-warning shadow-sm">
+                            <div className="card border-warning shadow-sm">
                                 <div className="card-body">
                                     <h4 className="card-title text-warning mb-4">Order Summary</h4>
                                     <div className="d-flex justify-content-between mb-3">
@@ -114,10 +114,6 @@ const Cart = () => {
             <style>{`
         .cart-page {
           min-height: 100vh;
-          background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url("/images/bg.png");
-          background-size: cover;
-          background-position: center;
-          background-attachment: fixed;
         }
       `}</style>
         </div>

@@ -1,7 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/farmhive-logo.png";
+import { useAuth } from "../../context/AuthContext";
+import { useTheme } from "../../context/ThemeContext";
+
+import Chatbot from "../chatbot/Chatbot";
+
 function Navbar() {
+  const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
+  const [showChat, setShowChat] = React.useState(false);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
       <div className="container-fluid">
@@ -59,18 +68,89 @@ function Navbar() {
                 <button className="btn nav-btn">Contact Us</button>
               </a>
             </li>
-            {/* Login */}
+
+            {user && (
+              <li className="nav-item">
+                <Link to="/seller">
+                  <button className="btn nav-btn text-warning border-warning">Seller Panel</button>
+                </Link>
+              </li>
+            )}
+            {/* Login / Profile */}
             <li className="nav-item">
-              <a href="/login/index.html">
-                <button className="btn btn-warning ms-3 px-4 fw-semibold">
-                  Login
-                </button>
-              </a>
+              {user ? (
+                <div className="dropdown ms-3">
+                  <button
+                    className="btn btn-warning rounded-circle fw-bold d-flex align-items-center justify-content-center"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style={{ width: "40px", height: "40px" }}
+                  >
+                    {user.name ? user.name.charAt(0).toUpperCase() : "U"}
+                  </button>
+                  <ul className="dropdown-menu dropdown-menu-end bg-dark border border-warning">
+                    <li>
+                      <span className="dropdown-item-text text-warning">
+                        Hello, {user.name}
+                      </span>
+                    </li>
+                    <li><hr className="dropdown-divider bg-warning" /></li>
+                    <li>
+                      <button
+                        className="dropdown-item text-white hover-warning d-flex align-items-center gap-2"
+                        onClick={toggleTheme}
+                      >
+                        <span>{theme === 'dark' ? '☀️' : '🌙'}</span>
+                        {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+                      </button>
+                    </li>
+                    <li>
+                      <Link to="/seller" className="dropdown-item text-white hover-warning">
+                        Seller Dashboard
+                      </Link>
+                    </li>
+                    <li>
+                      <button className="dropdown-item text-white hover-warning" onClick={logout}>
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <Link to="/login">
+                  <button className="btn btn-warning ms-3 px-4 fw-semibold">
+                    Login
+                  </button>
+                </Link>
+              )}
             </li>
 
           </ul>
         </div>
       </div>
+
+      {/* Floating Chatbot Trigger with Bee Logo */}
+      {!showChat && (
+        <button
+          onClick={() => setShowChat(true)}
+          className="btn btn-warning rounded-circle shadow-lg d-flex align-items-center justify-content-center position-fixed"
+          style={{
+            bottom: "20px",
+            right: "20px",
+            width: "60px",
+            height: "60px",
+            zIndex: 1050,
+            fontSize: "30px",
+            border: "2px solid #fff"
+          }}
+        >
+          🐝
+        </button>
+      )}
+
+      {/* Render Chatbot */}
+      <Chatbot isOpen={showChat} onClose={() => setShowChat(false)} />
 
       <style>{`
         .nav-btn {
@@ -83,6 +163,11 @@ function Navbar() {
 
         .nav-btn:hover {
           color: #ffc107;
+        }
+
+        .dropdown-item.hover-warning:hover {
+            background-color: transparent;
+            color: #ffc107 !important;
         }
 
         .theme-toggle {
@@ -108,7 +193,7 @@ function Navbar() {
           color: #ffc107;
         }
       `}</style>
-    </nav>
+    </nav >
   );
 }
 

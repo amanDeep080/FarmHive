@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useCart } from "../../context/CartContext";
 
 const Products = () => {
-  const { addToCart } = useCart();
+  const { addToCart, cartItems, removeFromCart, updateQuantity } = useCart();
   const [search, setSearch] = useState("");
 
   const [products] = useState([
@@ -44,7 +44,7 @@ const Products = () => {
 
   return (
     <div className="products-page">
-      <div className="container py-5 text-light" style={{ marginTop: "96px" }}>
+      <div className="container py-5" style={{ marginTop: "70px" }}>
 
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h2 className="text-warning fw-bold">FarmHive Products</h2>
@@ -60,26 +60,48 @@ const Products = () => {
 
         <div className="row g-4">
           {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
-              <div className="col-lg-3 col-md-4 col-sm-6" key={product.id}>
-                <div className="card bg-dark text-light h-100 shadow-sm border-warning product-card">
-                  <img src={product.image} alt={product.name} className="product-image" />
-                  <div className="card-body d-flex flex-column">
-                    <h5 className="card-title text-warning">{product.name}</h5>
-                    <p className="card-text mb-1">
-                      Category: <span className="text-secondary">{product.category}</span>
-                    </p>
-                    <p className="card-text fw-bold">₹ {product.price}</p>
-                    <button
-                      className="btn btn-warning mt-auto fw-semibold"
-                      onClick={() => addToCart(product)}
-                    >
-                      Add to Cart
-                    </button>
+            filteredProducts.map((product) => {
+              const cartItem = cartItems.find((item) => item.id === product.id);
+              return (
+                <div className="col-lg-3 col-md-4 col-sm-6" key={product.id}>
+                  <div className="card h-100 shadow-sm border-warning product-card">
+                    <img src={product.image} alt={product.name} className="product-image" />
+                    <div className="card-body d-flex flex-column">
+                      <h5 className="card-title text-warning">{product.name}</h5>
+                      <p className="card-text mb-1">
+                        Category: <span className="text-secondary">{product.category}</span>
+                      </p>
+                      <p className="card-text fw-bold">₹ {product.price}</p>
+
+                      {cartItem ? (
+                        <div className="d-flex align-items-center justify-content-between mt-auto">
+                          <button
+                            className="btn btn-warning btn-sm fw-bold px-3"
+                            onClick={() => cartItem.quantity > 1 ? updateQuantity(product.id, cartItem.quantity - 1) : removeFromCart(product.id)}
+                          >
+                            -
+                          </button>
+                          <span className="fw-bold fs-5">{cartItem.quantity}</span>
+                          <button
+                            className="btn btn-warning btn-sm fw-bold px-3"
+                            onClick={() => updateQuantity(product.id, cartItem.quantity + 1)}
+                          >
+                            +
+                          </button>
+                        </div>
+                      ) : (
+                        <button
+                          className="btn btn-warning mt-auto fw-semibold"
+                          onClick={() => addToCart(product)}
+                        >
+                          Add to Cart
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
+              );
+            })
           ) : (
             <p className="text-center text-secondary">No products found</p>
           )}
@@ -89,12 +111,6 @@ const Products = () => {
       <style>{`
         .products-page {
           min-height: 100vh;
-          background:
-            linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
-            url("/images/bg.png");
-          background-size: cover;
-          background-position: center;
-          background-attachment: fixed;
         }
 
         .product-image {
@@ -114,8 +130,6 @@ const Products = () => {
 
         .search-box {
           max-width: 260px;
-          background: #000;
-          color: #fff;
           border: 1px solid #ffc107;
         }
 
