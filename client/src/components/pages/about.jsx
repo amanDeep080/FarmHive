@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import founderImg from "../../assets/founder.jpg";
 
 const About = () => {
   return (
@@ -123,9 +124,9 @@ const About = () => {
           <div className="row g-4 justify-content-center">
             {[
               {
-                name: "Aditi Sharma",
+                name: "Amish Verma",
                 role: "Founder & CEO",
-                img: "https://randomuser.me/api/portraits/women/44.jpg",
+                img: founderImg,
               },
               {
                 name: "Rajesh Kumar",

@@ -7,12 +7,10 @@ import About from "./components/pages/about.jsx";
 import Login from "./components/pages/Login.jsx";
 import Register from "./components/pages/Register.jsx";
 import SellerDashboard from "./components/pages/SellerDashboard.jsx";
-import { Routes, Route } from "react-router-dom";
-
+import { Routes, Route } from "react-router-dom";   
 function App() {
   return (
     <>
-      {/* Conditionally render Navbar/Footer could be better, but for now simple routing */}
       <Navbar />
 
       <Routes>
